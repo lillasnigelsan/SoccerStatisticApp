@@ -1,0 +1,15 @@
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\SoccerStatisticApp.exe
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\SoccerStatisticApp.deps.json
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\SoccerStatisticApp.runtimeconfig.json
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\SoccerStatisticApp.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\SoccerStatisticApp.pdb
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.AssemblyInfoInputs.cache
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.AssemblyInfo.cs
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.csproj.CoreCompileInputs.cache
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.sourcelink.json
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\refint\SoccerStatisticApp.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.pdb
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.genruntimeconfig.cache
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\ref\SoccerStatisticApp.dll
