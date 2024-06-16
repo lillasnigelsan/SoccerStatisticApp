@@ -1,0 +1,10 @@
+1;Arsenal-Chelsea;2018-01-12;1-0;0-0
+2;Tottenham-Stoke;2018-01-10;4-2;2-1
+3;West Ham-Watford;2018-02-01;1-3;1-0
+4;Mancester C-Mancested U;2018-01-05;1-1;0-1
+5;Swansea-Burnley;2018-01-09;6-5;3-2
+6;Southampton-Liverpool;2018-01-05;1-3;0-2
+7;Bournemouth-Bournemouth;2018-02-12;0-2;0-1
+8;Newcastle-West Bromwich;2018-01-10;1-0;0-0
+9;Tottenham-Chelsea;2018-02-15;1-1;0-0
+10;Southampton-Mancested U;2018-02-15;1-2;1-0
