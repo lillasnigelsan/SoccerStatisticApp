@@ -2,28 +2,27 @@ using SoccerStatisticApp.Models;
 
 namespace SoccerStatisticApp.Services
 {
+    /*  Class responsible for recieveing new soccer statistics 
+        data and convert it to Statistic objects.
+        */
     public class SourceDataHandler
     {
-        private const string path = "DataResources/SourceData.txt";
+        private const string path = @"DataResources\SourceData.txt";
         private static SourceDataHandler? _instance;
-        readonly DestinationDataHandler destinationDataHandler = new();
+        private readonly DestinationDataHandler _destinationDataHandler;
 
-        public SourceDataHandler(DestinationDataHandler destinationDataHandler)
+        private SourceDataHandler(DestinationDataHandler destinationDataHandler)
         {
-            this.destinationDataHandler = destinationDataHandler;
+            _destinationDataHandler = destinationDataHandler;
         }
 
-        private SourceDataHandler() { }
-
-        public static SourceDataHandler GetInstance()
+        public static SourceDataHandler GetInstance(DestinationDataHandler destinationDataHandler)
         {
-            _instance ??= new SourceDataHandler();
+            _instance ??= new SourceDataHandler(destinationDataHandler);
             return _instance;
         }
 
-
-
-        public async Task ReadSourceAsync()
+        public static async Task ReadSourceAsync()
         {
             string[] lines = ReadLines(path);
             foreach (var line in lines)
@@ -39,7 +38,7 @@ namespace SoccerStatisticApp.Services
             return File.ReadAllLines(path);
         }
 
-        public Statistic CreateStatistic(string line)
+        public static Statistic CreateStatistic(string line)
         {
             string[] splitLine = line.Split(';');
             return new Statistic
@@ -47,11 +46,11 @@ namespace SoccerStatisticApp.Services
                 Id = int.Parse(splitLine[0]),
                 Description = splitLine[1],
                 MatchStartTime = DateTime.Parse(splitLine[2]),
-                Results = new List<Results>
-                {
-                    new Results {type = 0, home = int.Parse(splitLine[3].Split('-')[0]), away = int.Parse(splitLine[3].Split('-')[1])},
-                    new Results {type = 1, home = int.Parse(splitLine[4].Split('-')[0]), away = int.Parse(splitLine[4].Split('-')[1])}
-                }
+                Results =
+                [
+                    new() {Type = 0, Home = int.Parse(splitLine[3].Split('-')[0]), Away = int.Parse(splitLine[3].Split('-')[1])},
+                    new() {Type = 1, Home = int.Parse(splitLine[4].Split('-')[0]), Away = int.Parse(splitLine[4].Split('-')[1])}
+                ]
             };
         }
 

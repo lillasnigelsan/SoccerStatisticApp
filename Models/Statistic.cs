@@ -2,6 +2,9 @@ using System.Text.Json;
 
 namespace SoccerStatisticApp.Models
 {
+    /*  Class representing a model used to create Statistic objects for each specific game, 
+        can easily convert incoming (ToJson) and outgoing (FromJson) match data.
+        */
     public class Statistic
     {
         public int Id { get; set; }
@@ -24,8 +27,8 @@ namespace SoccerStatisticApp.Models
 
     public class Results
     {
-        public int type { get; set; }
-        public int home { get; set; }
-        public int away { get; set; }
+        public int Type { get; set; }
+        public int Home { get; set; }
+        public int Away { get; set; }
     }
 }
