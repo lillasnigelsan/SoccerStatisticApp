@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using SoccerStatisticApp.Services;
-using System.Threading.Tasks;
 
 /*  This is the program entrypiont, 
     responsible for initiating dependencies
