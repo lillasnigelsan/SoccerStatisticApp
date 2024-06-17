@@ -1,4 +1,6 @@
+using System.Text.RegularExpressions;
 using SoccerStatisticApp.Models;
+using Microsoft.Extensions.Logging;
 
 namespace SoccerStatisticApp.Services
 {
@@ -9,29 +11,50 @@ namespace SoccerStatisticApp.Services
     {
         private const string path = @"DataResources\SourceData.txt";
         private static SourceDataHandler? _instance;
-        private readonly DestinationDataHandler _destinationDataHandler;
+        private readonly IDestinationDataHandler _destinationDataHandler;
+        private readonly ILogger<SourceDataHandler> _logger;
 
-        private SourceDataHandler(DestinationDataHandler destinationDataHandler)
+        private SourceDataHandler(DestinationDataHandler destinationDataHandler, ILogger<SourceDataHandler> logger)
         {
             _destinationDataHandler = destinationDataHandler;
+            _logger = logger;
+
         }
 
-        public static SourceDataHandler GetInstance(DestinationDataHandler destinationDataHandler)
+        public static SourceDataHandler GetInstance(DestinationDataHandler destinationDataHandler, ILogger<SourceDataHandler> logger)
         {
-            _instance ??= new SourceDataHandler(destinationDataHandler);
+            _instance ??= new SourceDataHandler(destinationDataHandler, logger);
             return _instance;
         }
 
-        public static async Task ReadSourceAsync()
+        public async Task ReadSourceAsync()
         {
+            string regexPattern = @"^\d+;([^;-]+)-(?!\1)([^;-]+);\d{4}-\d{2}-\d{2};\d+-\d+;\d+-\d+$";
+
+
             string[] lines = ReadLines(path);
             foreach (var line in lines)
             {
+                if (!Regex.IsMatch(line, regexPattern))
+                {
+                    _logger.LogInformation($"Regex cought error in this line, and skipped to the next.");
+                    continue;
+                }
+
+
                 Statistic statistic = CreateStatistic(line);
+
+                if (await _destinationDataHandler.CheckIfExistsAsync(statistic.Id))
+                {
+                    _logger.LogInformation($"Id {statistic.Id} already exists, skipp line");
+                    continue;
+                }
+
                 string json = statistic.ToJson();
-                await DestinationDataHandler.WriteLineAsync(json);
+                await _destinationDataHandler.WriteLineAsync(json);
             }
         }
+
 
         public static string[] ReadLines(string path)
         {

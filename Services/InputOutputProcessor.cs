@@ -1,7 +1,5 @@
-using System;
-using System.Threading.Tasks;
 using SoccerStatisticApp.Models;
-using SoccerStatisticApp.Services;
+using Microsoft.Extensions.Logging;
 
 namespace SoccerStatisticApp.Services
 {
@@ -9,22 +7,23 @@ namespace SoccerStatisticApp.Services
         with the console - which in this consol application 
         is the actual user interface.
         */
-    public class InputOutputProcessor(UserInterface UI, DestinationDataHandler destinationDataHandler)
+    public class InputOutputProcessor(UserInterface UI, IDestinationDataHandler destinationDataHandler, ILogger<InputOutputProcessor> logger)
     {
         private readonly UserInterface _UI = UI;
-        private readonly DestinationDataHandler _destinationDataHandler = destinationDataHandler;
+        private readonly IDestinationDataHandler _destinationDataHandler = destinationDataHandler;
+        private readonly ILogger<InputOutputProcessor> _logger = logger;
 
         public async Task UserInterfaceAsync()
         {
             while (true)
             {
-                UserInterface.DisplayMessage("Please enter a command (Q to quit, 1-10 to fetch statistic):");
+                UserInterface.DisplayMessage("\nAlternativ:\n - Hämta statistik för en match genom att ange ett id.\n - Avsluta programmet med Q.");
                 string input = (await _UI.GetUserInputAsync()).ToLower();
-                ProcessInput(input);
+                await ProcessInput(input);
             }
         }
 
-        private void ProcessInput(string input)
+        private async Task ProcessInput(string input)
         {
             if (!ValidateInput(input))
             {
@@ -39,25 +38,34 @@ namespace SoccerStatisticApp.Services
             }
 
             int id = int.Parse(input);
-            Statistic? stat = DestinationDataHandler.ReadLineById(id);
+            Statistic? stat = await _destinationDataHandler.ReadLineByIdAsync(id);
 
             if (stat == null)
             {
-                UserInterface.DisplayMessage("Hittade ingen match med detta id.");
+                UserInterface.DisplayMessage("\nHittade ingen match med detta id.");
+
+                List<string> ranges = await _destinationDataHandler.GetEntryInfoAsync();
+                if (ranges != null)
+                {
+                    UserInterface.DisplayMessage("Tillgängliga id:");
+                    foreach (string range in ranges)
+                    {
+                        UserInterface.DisplayMessage(range);
+                    }
+                }
                 return;
             }
 
-            string formatedMessage = StatisticToString(stat);
+            string formatedMessage = StatisticToStringMessage(stat);
             UserInterface.DisplayMessage(formatedMessage);
         }
 
-        //TODO: Check number of entries in destinationdata..
         private static bool ValidateInput(string input)
         {
-            return input == "q" || (int.TryParse(input, out int number) && number >= 1 && number <= 10);
+            return input == "q" || (int.TryParse(input, out int number) && number >= 1);
         }
 
-        private static string StatisticToString(Statistic data)
+        private static string StatisticToStringMessage(Statistic data)
         {
             try
             {
@@ -72,7 +80,7 @@ namespace SoccerStatisticApp.Services
                 string gameTeamsDate = $"Matchen med id {data.Id}, spelades mellan lagen {data.Description}, {data.MatchStartTime}.";
                 string resultMidGame = $"Efter halvtid var resultatet {midGameScores.Home} - {midGameScores.Away}.";
                 string resultTotal = $"Matchen slutade med {totalScores.Home} - {totalScores.Away}.";
-                return $"{gameTeamsDate} \n - {resultMidGame} \n - {resultTotal}";
+                return $"\n{gameTeamsDate}\n - {resultMidGame}\n - {resultTotal}";
             }
             catch (Exception)
             {
@@ -82,6 +90,7 @@ namespace SoccerStatisticApp.Services
 
         private void CloseDown()
         {
+            _logger.LogInformation("The application is closing down.");
             _destinationDataHandler.Dispose();
             Environment.Exit(0);
         }

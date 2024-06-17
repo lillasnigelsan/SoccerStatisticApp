@@ -13,3 +13,17 @@ C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\
 C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.pdb
 C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.genruntimeconfig.cache
 C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\ref\SoccerStatisticApp.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.Logging.Configuration.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.Logging.Console.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerStatisticApp.csproj.AssemblyReference.cache
+C:\Users\Sophia\Desktop\ProgrammeringsUppgiftSvenskaSpel\SoccerStatisticApp\obj\Debug\net8.0\SoccerSt.3AA76374.Up2Date
